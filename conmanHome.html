@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='conman.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <title>Contact Manager Home</title>
+  </head>
+  <body>
+    <div class='container'>
+      <div class='col-md-offset-2 col-md-8 clearfix'>
+        <h2>HOME OF THE CONTACTS</h2>
+    <table id="contactsTable" class="table table-striped">
+      <thead>
+        <tr>
+          <th>FIRST NAME</th>
+          <th>LAST NAME</th>
+          <th>EMAIL ADDRESS</th>
+          <th>PHONE NUMBER</th>
+        </tr>
+      </thead>
+      <tbody id = 'contactsData'>
+      </tbody>
+    </table>
+    <input class = "form-group form-auth" type="text" id = 'friendSearch'  placeholder="FIND YOUR FRIEND HERE!!!"></input>
+    <button id = 'searchButton' class = "btn btn-primary"> FIND </button>
+  </div></div>
+    <p id = 'quickLink'>
+    <!--NOTE: this is on each page for ease of access-->
+      <a href='conmanHome.html'>HOME</a>
+      <span>     /    </span>
+      <a href='conmanAdd.html'>ADD A CONTACT</a>
+      <!-- <a href='conmanEdit.html'>EDIT A CONTACT</a>
+      <a href='conmanDelete.html'>DELETE A CONTACT</a> -->
+    </p>
+    <script type="text/javascript" src='conman.js'></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='conman.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <title>Delete Contact</title>
+  </head>
+  <body id = 'deleteContactForm'>
+    <div class='container'>
+      <div class="col-md-offset-2 col-md-4 clearfix">
+        <h2>FAREWELL FRIEND</h2>
+        <form id='deleteContactForm' class="form-group form-auth" >
+          <input id='firstName' class='form-control' type='text'readonly />
+          <input id='lastName' class='form-control' type='text' disabled/>
+          <input id='emailAddress' class='form-control' type='email' readonly />
+          <input id='phoneNumber' class='form-control' type='tel'  disabled/>
+          <button id="deleteBtn" class="btn btn-danger  pull-right"> GOODBYE </button>
+        </form>
+</div></div>
+    <p id = 'quickLink'>
+      <!--NOTE: this is on each page for ease of access-->
+      <a href='conmanHome.html'>HOME</a>
+      <span>     /    </span>
+      <a href='conmanAdd.html'>ADD A CONTACT</a>
+      <!-- <a href='conmanEdit.html'>EDIT A CONTACT</a>
+      <a href='conmanDelete.html'>DELETE A CONTACT</a> -->
+    </p>
+    <script type="text/javascript" src='conman.js'></script>
+  </body>
+</html>
