@@ -1,15 +1,16 @@
 function validateForm(){
   var firstName = document.getElementById('firstName').value;
+  var lastName = document.getElementById("lastName").value;
+  var emailAddress = document.getElementById("emailAddress").value;
+  var phoneNumber = document.getElementById("phoneNumber").value;
   if( firstName === null || firstName === "" || firstName === "First Name"){
    alert ('Please enter your first name.');
    return false;
  };
-  var lastName = document.getElementById("lastName").value;
   if( lastName === null || lastName === "" || lastName === "Last Name"){
     alert ('Please enter your last name.');
     var email = prompt('Please enter last name:');
   };
-  var emailAddress = document.getElementById("emailAddress").value;
   if( emailAddress === null || emailAddress === "" || emailAddress === "Email Address"){
     alert ('Please enter your email address.');
     return false;
@@ -20,14 +21,13 @@ function validateForm(){
         return false;
       };
     };
-  var phoneNumber = document.getElementById("phoneNumber").value;
   if( phoneNumber === null || phoneNumber === "" || phoneNumber === "Phone Number"){
     alert ('Please enter your phone number.');
     return false;
   } else {
     var validPhoneNumber = /\d{3}\.\d{3}\.\d{4}/;
-    // var validPhoneNumber1 = /\d{3}-\d{3}-\d{4}/;
-      if(!validPhoneNumber.test(phoneNumber)/* || !validPhoneNumber1.test(phoneNumber)*/){
+    var validPhoneNumber1 = /\d{3}-\d{3}-\d{4}/;
+      if(!validPhoneNumber.test(phoneNumber) && !validPhoneNumber1.test(phoneNumber)){
         alert('Please enter a valid phone number.');
         return false;
       }
@@ -53,6 +53,7 @@ var table = document.getElementById('contactsTable');
 if (table != null) {
   for (var i in localStorage){
     var nextRow = table.insertRow();
+    nextRow.setAttribute('id', i);
     var nextContact =JSON.parse(localStorage[i]);
    // SPACE FOR CLARIFICATION
     var nextFirstName = nextRow.insertCell(0);
@@ -76,36 +77,36 @@ if (table != null) {
     deleteLink.innerHTML = "delete";
     nextDelete.appendChild(deleteLink);
   };
-  // var search =
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  var searchButton = document.getElementById('searchButton').addEventListener('click', function(){
+    var searchString = document.getElementById('search').value;
+     if (searchString != null){
+       for (var p in localStorage){
+         var searchContact =JSON.parse(localStorage[p]);
+          for(var q in searchContact){
+            if (searchContact.hasOwnProperty(q));
+              if (searchString === searchContact[q]){
+                document.getElementById(p).setAttribute('class', 'info');
+              // var searchLink = 'conmanEdit.html?' + p;
+              // window.location.href = searchLink;
+            };
+          };
+       };
+     };
+  });
 };
 // addbutton just doing its job on the ADD CONTACT PAGE
 var addButton = document.getElementById('addButton');
 if(addButton != null ) {
   addButton.addEventListener('click', function(e) {
     e.preventDefault();
-    var firstName = document.getElementById('firstName').value;
-    var lastName = document.getElementById('lastName').value;
-    var emailAddress = document.getElementById('emailAddress').value;
-    var phoneNumber = document.getElementById('phoneNumber').value;
-    addContact(firstName,lastName,emailAddress,phoneNumber);
-    window.location.reload();
+    if (validateForm()){
+      var firstName = document.getElementById('firstName').value;
+      var lastName = document.getElementById('lastName').value;
+      var emailAddress = document.getElementById('emailAddress').value;
+      var phoneNumber = document.getElementById('phoneNumber').value;
+      addContact(firstName,lastName,emailAddress,phoneNumber);
+      window.location.reload();
+    }
   });
 };
 
